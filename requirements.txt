@@ -1,0 +1,13 @@
+langchain
+langchain-core
+langchain-community
+langchain-ollama
+langchain-text-splitters
+
+faiss-cpu
+pypdf
+
+streamlit
+python-dotenv
+pydantic
+tqdm
