@@ -1,0 +1,21 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual env
+.venv/
+
+# VS Code
+.vscode/
+
+# Streamlit cache
+.streamlit/
+
+# Data documents (PDF etc.)
+data/esilv_docs/*
+!data/esilv_docs/.gitkeep
+
+# Vector store (FAISS / index)
+storage/vectorstores/*
+!storage/vectorstores/.gitkeep
