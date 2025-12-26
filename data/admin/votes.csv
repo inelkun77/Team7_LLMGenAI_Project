@@ -1,0 +1,17 @@
+msg_id,agent,vote
+5,AcademicsAgent,up
+3,AcademicsAgent,down
+13,AdmissionsAgent,down
+13,AdmissionsAgent,down
+13,AdmissionsAgent,down
+1,AcademicsAgent,up
+1,AcademicsAgent,up
+3,AcademicsAgent,down
+5,StudentLifeAgent,down
+9,AcademicsAgent,down
+1,AdminAgent,down
+7,AdminAgent,down
+11,AdminAgent,down
+3,AcademicsAgent,down
+5,AdmissionsAgent,up
+7,AdminAgent,down

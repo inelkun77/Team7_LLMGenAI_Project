@@ -19,3 +19,5 @@ data/esilv_docs/*
 # Vector store (FAISS / index)
 storage/vectorstores/*
 !storage/vectorstores/.gitkeep
+
+#data/esilv_docs/

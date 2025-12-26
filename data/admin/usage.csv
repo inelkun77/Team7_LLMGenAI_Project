@@ -1,0 +1,50 @@
+agent,question
+AcademicsAgent,comment ça va ? 
+AcademicsAgent,je vien d'avoir mon bac 
+AcademicsAgent,c'est quoi les majeurs de l'esilv ? 
+AcademicsAgent,c'est quoi les majeurs de l'esilv ?donne moi en que 3
+AcademicsAgent,parle moi de la majeur de l'esilv robot infomatisé finance
+AdmissionsAgent,Est-ce que mon dossier a bien été reçu pour la rentrée prochaine ?
+AcademicsAgent,Coucou cmt ça va ? ,Vie étudiante
+AcademicsAgent,"salut , cmt ca va ? "
+AcademicsAgent,coucou cmt ca av ? 
+AcademicsAgent,c'est quoi les majeurs de l'esilv ? 
+StudentLifeAgent,y'a til un bde ? des assos ? 
+AdmissionsAgent,et les admissions ne sont cmt ? 
+AcademicsAgent,les abscences sont penalisées ?
+AcademicsAgent,resume moi ce doc
+AdminAgent,resume moi ce doc stp
+AdminAgent,"resume moi ce doc, de quoi il parle ?"
+AdminAgent,cmt ca va ? 
+AdminAgent,Quelles sont les majeurs de l'esilv ?
+AdminAgent,COMMENT DEPOSER SA CANDIDATEUR?
+StudentLifeAgent,Y4A TIL UN BDE ? DES ASSOS?
+AdminAgent,Comment s'inscrire ?
+AdminAgent,LES ABSECENCES SONT ELLES PENANLISEES ?
+AdminAgent,bonjour ça va bien ?
+AdminAgent,resume moi ce doc stp
+AdminAgent,Donne moi les majeurs de l'esilv ?
+AdminAgent,donne moi les majeurs de l'esilv
+AdminAgent,les abscences ca se passe cmt ? 
+AdminAgent,les majeurs de l'esilv ?
+AcademicsAgent,il y'a quoi dans les cours ? 
+AdminAgent,quelles sont les majeurs à l'esilv ? 
+AdminAgent,quelles sont les majeurs de l'esilv ? 
+AcademicsAgent,quelles sont les majeure de l'esilv ?
+AdmissionsAgent,comment deposer sa candidature ? 
+AdmissionsAgent,comment deposer sa candidature ?
+AdminAgent,les absences sont elles penalisées ?
+StudentLifeAgent,y'a til un bde ou des assos ?
+AdminAgent,resume moi ce doc stp
+AdminAgent,de quoi parle ce document ? 
+AdminAgent,de quoi parle ce document ? 
+AcademicsAgent,quelles sont les majeure de l'esilv ? 
+AdminAgent,LES ABSECENCES SONT ELLES PENANLISEES ?
+StudentLifeAgent,Y4A TIL UN BDE ? DES ASSOS?
+AdminAgent,COMMENT DEPOSER SA CANDIDATEUR?
+AdmissionsAgent,candidature
+AdmissionsAgent,AVEZ VOUS DES NOUVELLES DE MA CANDIDATURE?
+AdmissionsAgent,AVEZ VOUS DES NOUVELLES DE MA CANDIDATURE?
+AdmissionsAgent,avez vous des nouvelles de ma candidature ?
+AdminAgent,qu'en est il ? 
+AdmissionsAgent,quand je peux deposer ma candidature ? 
