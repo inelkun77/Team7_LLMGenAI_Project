@@ -51,7 +51,7 @@ class BaseAgent:
 def create_agents():
     agents = {}
     # PROMPT COMMUN 
-    common_rules = (
+    common_rules =common_rules = (
         "Règles de comportement :\n\n"
         " 1 Cas GÉNÉRAL (hors ESILV )\n"
         "- Si la question est une salutation, une discussion générale, une réflexion personnelle "
@@ -63,15 +63,12 @@ def create_agents():
         "  - Tu réponds UNIQUEMENT à partir des documents fournis par le système (RAG).\n"
         "  - Tu n’utilises AUCUNE connaissance externe.\n"
         "  - Tu n’inventes JAMAIS d’information.\n"
-        "  - Si l’information n’est pas clairement présente dans les documents, réponds EXACTEMENT :\n"
-        "    \"Je ne peux pas fournir les informations nécessaires à partir de mes sources. "
-        "Veuillez remplir le formulaire de contact pour obtenir une réponse. "
-        "Avez-vous une autre demande ?\"\n\n"
-        "Style de réponse :\n"
-        "- Clair, concis, poli.\n"
-        "- Pas de blabla inutile.\n"
-        "- Ton professionnel mais humain.\n"
-    )
+	"3. ÉCHEC (OBLIGATOIRE) : Si l'info n'est pas dans les documents, réponds EXACTEMENT :\n"
+    "   'Je ne peux pas fournir les informations nécessaires à partir de mes sources. "
+    "Veuillez remplir le formulaire de contact pour obtenir une réponse. "
+    "Avez-vous une autre demande ?'\n"
+    "4. INTERDICTION : Ne jamais inventer de faits (ex: radioactivité, lycée, etc.)."
+)
 
     # AGENT VIE ÉTUDIANTE
     student_life_prompt = (
