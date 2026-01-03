@@ -32,12 +32,12 @@ def build_rag_chain(system_prompt: str, agent_type: str = None):
     - PAS de dict mal formé
     """
 
-    llm = ChatOllama(model=OLLAMA_MODEL, temperature=0.2)
+    llm = ChatOllama(model=OLLAMA_MODEL, temperature=0)
     vectorstore = load_vectorstore()
 
 
     retriever = vectorstore.as_retriever(
-        search_kwargs={"k": 4}
+        search_kwargs={"k": 6}#meilleur extraits dans la base FAISS
     )
 
     prompt = ChatPromptTemplate.from_messages(
@@ -62,14 +62,16 @@ def build_rag_chain(system_prompt: str, agent_type: str = None):
     rag_chain = (
         RunnableParallel(
         {
-            "question": RunnablePassthrough(),
-            "context": (lambda x: x["question"]) | retriever | format_docs,
-            "user_context": RunnablePassthrough(),
+            "question": RunnablePassthrough(),# On garde la question brute
+            "context": (lambda x: x["question"]) | retriever | format_docs,# On cherche dans FAISS
+            "user_context": RunnablePassthrough(),# On garde le document uploadé
         }
     )
-    | prompt
-    | llm
-    | StrOutputParser()
+    | prompt # On injecte tout dans le moule
+    | llm # Le modèle génère la réponse
+    | StrOutputParser() # On transforme la sortie en texte simple
+
+
     )
 
     return rag_chain
