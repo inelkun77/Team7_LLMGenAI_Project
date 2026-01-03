@@ -1,6 +1,6 @@
 # app/config.py
 
-OLLAMA_MODEL = "gemma3:1b"  
+OLLAMA_MODEL = "gemma3:1b"   #gemma3:1b
 EMBEDDING_MODEL = "nomic-embed-text"  
 VECTORSTORE_PATH = "storage/vectorstores/esilv_faiss"
 DOCS_PATH = "data/esilv_docs"
