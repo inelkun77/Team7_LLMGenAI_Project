@@ -1,16 +1,15 @@
-# streamlit_app.py
-
 import streamlit as st
 import csv
 from pathlib import Path
 from collections import Counter, defaultdict
+from pypdf import PdfReader  # Correction de la lecture PDF
 
 from app.router import AgentRouter
 
 
-# =========================
+
 # Paths
-# =========================
+
 
 ADMIN_DIR = Path("data/admin")
 CONTACTS_PATH = ADMIN_DIR / "contacts.csv"
@@ -20,9 +19,8 @@ USAGE_PATH = ADMIN_DIR / "usage.csv"
 ADMIN_DIR.mkdir(parents=True, exist_ok=True)
 
 
-# =========================
+
 # Utils
-# =========================
 
 def valid_email(email):
     return "@" in email and "." in email
@@ -52,18 +50,18 @@ def init_session():
         st.session_state.votes = {}
 
 
-# =========================
+
 # APP
-# =========================
+
 
 def main():
     st.set_page_config("ESILV Smart Assistant", "🎓", layout="centered")
     init_session()
 
-    # -------- SIDEBAR
+    
     page = st.sidebar.radio("Navigation", ["💬 Chat", "📊 Admin"])
 
-    # -------- FORMULAIRE DE CONTACT
+    # FORMULAIRE DE CONTACT 
     st.sidebar.markdown("## 📩 Contact ")
     with st.sidebar.form("contact_form"):
         name = st.text_input("Nom *")
@@ -105,7 +103,7 @@ def main():
         st.title("🎓 ESILV Smart Assistant")
         st.caption("Assistant multi-agents avec RAG institutionnel.")
 
-        # Historique
+        # Historique 
         for i, msg in enumerate(st.session_state.messages):
             with st.chat_message(msg["role"]):
                 if msg["role"] == "assistant":
@@ -130,20 +128,34 @@ def main():
                 else:
                     st.markdown(msg["content"])
 
-        # Upload document
+        # Upload document 
         with st.expander("📎 Ajouter un document", expanded=False):
             file = st.file_uploader("", type=["txt", "pdf"], label_visibility="collapsed")
             if file:
-                st.session_state.uploaded_doc = file.read().decode(
-                    "utf-8", errors="ignore"
-                )
-                st.success(f"{file.name} chargé")
+                if file.name.endswith(".pdf"):
+                    try:
+                        # Utilisation de pypdf pour extraire le texte réel 
+                        pdf_reader = PdfReader(file)
+                        text_content = ""
+                        for page_num in range(len(pdf_reader.pages)):
+                            page_text = pdf_reader.pages[page_num].extract_text()
+                            if page_text:
+                                text_content += page_text + "\n"
+                        st.session_state.uploaded_doc = text_content
+                        st.success(f"PDF '{file.name}' lu avec succès")
+                    except Exception as e:
+                        st.error(f"Erreur lors de la lecture du PDF : {e}")
+                else:
+                    # Pour les fichiers TXT
+                    st.session_state.uploaded_doc = file.read().decode(
+                        "utf-8", errors="ignore"
+                    )
+                    st.success(f"{file.name} chargé")
 
         # Chat input
         user_input = st.chat_input("Pose ta question…")
 
-
-        # afficher la question immédiatement
+        # Afficher la question immédiatement
         if user_input:
             st.session_state.messages.append(
                 {
@@ -155,8 +167,7 @@ def main():
             st.session_state.pending_question = user_input
             st.rerun()
 
-
-        # calculer la réponse
+        # Calculer la réponse
         if "pending_question" in st.session_state:
             with st.chat_message("assistant"):
                 with st.spinner("Réflexion en cours..."):
@@ -186,7 +197,7 @@ def main():
             st.rerun()
 
 
-    # PAGE ADMIN
+    # PAGE ADMIN 
 
     else:
         st.title("📊 Admin – Statistiques")
