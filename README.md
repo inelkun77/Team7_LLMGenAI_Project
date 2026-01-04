@@ -68,10 +68,10 @@ project-root/
 |---------|-------|
 | Chunk size | 400 characters |
 | Chunk overlap | 60 characters |
-| Retriever k | 4 documents |
+| Retriever k | 6 documents |
 | Embedding model | nomic-embed-text |
 | LLM | gemma3:1b (via Ollama) |
-| Temperature | 0.2 |
+| Temperature | 0 |
 | Max context | 2000 characters |
 | Max response length | 8 lines |
 
